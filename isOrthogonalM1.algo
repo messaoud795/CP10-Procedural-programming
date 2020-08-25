@@ -1,0 +1,40 @@
+PROCEDURE dot_product(t1:Array_OF INTEGER,t2:Array_OF INTEGER,)
+VAR
+    i:INTEGER;
+BEGIN
+ps:=0;
+FOR i FROM 0 TO t1.length-1 STEP 1  DO
+    ps:=ps+t1[i]*t2[i];
+END_FOR
+END
+ALGORITHM isOrthogonal
+VAR
+V:ARRAY_OF INTEGER[l][n]
+ n,i,j,l,ps=INTEGER;
+BEGIN
+ps:=0;
+//get the number of the vectors
+Write("enter the number  of vectors ");
+Read(n);
+//get the number of elements in each vector
+Write("enter the length of the two vectors ");
+Read (l);
+//get the elements of the vectors
+FOR i FROM 0 TO l-1 STEP 1  DO
+ Write("Enter the elements of the vector number", i+1)
+    FOR j FROM 0 TO n-1 STEP 1  DO
+    Read(V[i][j]);
+    END_FOR
+END_FOR
+//test and display the orthogonal vectors
+FOR i FROM 0 TO l STEP 1  DO
+     FOR j FROM 0 TO l STEP 1  DO
+     dot_product(V[i],V[j]);
+     IF (i<>j) THEN
+          IF (ps=0) THEN
+         write("vector number", i+1 , "and vector number",j+1, "are orthogonal" )
+     END_IF
+     END_IF
+    
+     END_FOR
+END_FOR
